@@ -15,49 +15,38 @@ class _FirstPageState extends State<FirstPage> {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          // crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Stack(
               alignment: Alignment.center,
               children: [
                 Image.asset("assets/images/welcome.png",
                     width: 300, height: 250),
+                const Positioned(
+                  top: 75,
+                  left: 53,
+                  child: Text("EASY",
+                      style: TextStyle(
+                          color: Color(0xFFFFFFFF),
+                          fontSize: 23,
+                          fontWeight: FontWeight.w400,
+                          fontFamily: "CarterOne")),
+                ),
                 Positioned(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Column(
-                        children: [
-                          Text("EASY",
-                              style: TextStyle(
-                                  color: Color(0xFFFFFFFF),
-                                  fontSize: 25,
-                                  fontWeight: FontWeight.w400,
-                                  fontFamily: "CarterOne")),
-                        ],
-                      ),
-                      Column(
-                        children: [
-                          Image.asset(
-                            "assets/images/CAR.png",
-                            height: 135,
-                            width: 78,
-                          ),
-                        ],
-                      ),
-                      const Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Text("PARK",
-                              style: TextStyle(
-                                  color: Color(0xFFFFFFFF),
-                                  fontSize: 25,
-                                  fontWeight: FontWeight.w400,
-                                  fontFamily: "CarterOne")),
-                        ],
-                      ),
-                    ],
+                  child: Image.asset(
+                    "assets/images/CAR.png",
+                    height: 135,
+                    width: 78,
                   ),
+                ),
+                const Positioned(
+                  bottom: 75,
+                  right: 53,
+                  child: Text("PARK",
+                      style: TextStyle(
+                          color: Color(0xFFFFFFFF),
+                          fontSize: 20,
+                          fontWeight: FontWeight.w400,
+                          fontFamily: "CarterOne")),
                 ),
               ],
             ),
