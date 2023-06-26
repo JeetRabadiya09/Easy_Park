@@ -60,6 +60,10 @@ flutter:
     - family: sf-pro-display-cufonfonts
       fonts:
         - asset: assets/Fonts/SFPRODISPLAYBOLD.OTF
+
+    - family: Poppins
+      fonts:
+        - asset: assets/Fonts/Poppins-Medium.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro
