@@ -1,4 +1,4 @@
-import 'package:easy_park/screen/login_success.dart';
+import 'package:easy_park/screen/home%20_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: Login_Success(),
+      home: const HomeScreen(),
     );
   }
 }
