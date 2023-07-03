@@ -11,6 +11,7 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
+  GlobalKey<FormState> formkey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -67,30 +68,39 @@ class _SignUpState extends State<SignUp> {
               ),
               Align(
                 heightFactor: 1.12,
-                child: Padding(
-                  padding: const EdgeInsets.only(right: 21, left: 21),
-                  child: TextField(
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: const BorderSide(
-                            width: 0.8, color: Color(0x8EB3B3B3)),
-                      ),
-                      contentPadding: const EdgeInsets.all(02),
-                      isDense: true,
-                      hintText: "Email",
-                      hintStyle: const TextStyle(
+                child: Form(
+                  key: formkey,
+                  child: Padding(
+                    padding: const EdgeInsets.only(right: 21, left: 21),
+                    child: TextFormField(
+                      validator: (value) {
+                        if (value!.isNotEmpty) {
+                          return "Please Enter email.";
+                        }
+                        return "hello";
+                      },
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide: const BorderSide(
+                              width: 0.8, color: Color(0x8EB3B3B3)),
+                        ),
+                        contentPadding: const EdgeInsets.all(02),
+                        isDense: true,
+                        hintText: "Email",
+                        hintStyle: const TextStyle(
+                            color: Color(0xFFB3B3B3),
+                            fontSize: 16,
+                            fontWeight: FontWeight.w400,
+                            fontFamily: "sf-pro-display-cufonfonts"),
+                        prefixIcon: const Icon(
+                          Icons.email_outlined,
                           color: Color(0xFFB3B3B3),
-                          fontSize: 16,
-                          fontWeight: FontWeight.w400,
-                          fontFamily: "sf-pro-display-cufonfonts"),
-                      prefixIcon: const Icon(
-                        Icons.email_outlined,
-                        color: Color(0xFFB3B3B3),
-                        size: 25,
+                          size: 25,
+                        ),
                       ),
+                      onTap: () {},
                     ),
-                    onTap: () {},
                   ),
                 ),
               ),
@@ -202,7 +212,7 @@ class _SignUpState extends State<SignUp> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => FirstPage(),
+                              builder: (context) => const FirstPage(),
                             ));
                       },
                       child: const Text(
