@@ -53,6 +53,30 @@ class _SearchScreenState extends State<SearchScreen> {
                     fontFamily: "sf-pro-display-cufonfonts"),
               ),
             ),
+            Align(
+              heightFactor: 2.5,
+              child: Padding(
+                padding: const EdgeInsets.only(left: 20, right: 20),
+                child: TextField(
+                  decoration: InputDecoration(
+                    enabledBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(
+                            color: Color(0xFF1D951A), width: 02),
+                        borderRadius: BorderRadius.circular(11)),
+                    prefixIcon: Icon(Icons.search_rounded, size: 34),
+                  ),
+                  cursorColor: Color(0xFF1D951A),
+                  // width: double.infinity,
+                  // height: 48,
+                  // decoration: BoxDecoration(
+                  //   color: const Color(0xFFFFFFFF),
+                  //   border:
+                  //       Border.all(color: const Color(0xFF1D951A), width: 2),
+                  //   borderRadius: BorderRadius.circular(11),
+                  // ),
+                ),
+              ),
+            ),
           ],
         ),
       ),

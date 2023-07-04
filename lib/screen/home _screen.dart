@@ -149,7 +149,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => ArView(),
+                                    builder: (context) => SearchScreen(),
                                   ),
                                 );
                               },
@@ -180,50 +180,6 @@ class _HomeScreenState extends State<HomeScreen> {
                           ],
                         ),
                       ),
-                      // TextField(
-                      //   decoration: InputDecoration(
-                      //     fillColor: const Color(0xFFFFFFFF),
-                      //     filled: true,
-                      //     enabled: true,
-                      //     enabledBorder: OutlineInputBorder(
-                      //         borderSide:
-                      //             const BorderSide(color: Color(0xFFFFFFFF)),
-                      //         borderRadius: BorderRadius.circular(13)),
-                      //     contentPadding: const EdgeInsets.all(2),
-                      //     isDense: true,
-                      //     hintText: "Search for parking",
-                      //     hintStyle: const TextStyle(
-                      //         color: Color(0xFFB3B3B3),
-                      //         fontSize: 16,
-                      //         fontWeight: FontWeight.w400,
-                      //         fontFamily: "sf-pro-display-cufonfonts"),
-                      //     prefixIcon: const Icon(
-                      //       Icons.search_sharp,
-                      //       color: Color(0xFF1A1A1A),
-                      //       size: 26,
-                      //     ),
-                      //     suffixIcon: Padding(
-                      //       padding: const EdgeInsets.only(right: 15),
-                      //       child: GestureDetector(
-                      //         onTap: () {
-                      //           Navigator.push(
-                      //             context,
-                      //             MaterialPageRoute(
-                      //               builder: (context) => const ArView(),
-                      //             ),
-                      //           );
-                      //         },
-                      //         child: Image.asset(
-                      //           "assets/images4/filter2.png",
-                      //         ),
-                      //       ),
-                      //     ),
-                      //     suffixIconConstraints: BoxConstraints.loose(
-                      //       const Size(35, 35),
-                      //     ),
-                      //   ),
-                      //   onTap: () {},
-                      // ),
                     ),
                   ),
                   GestureDetector(
