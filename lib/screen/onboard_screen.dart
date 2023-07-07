@@ -95,6 +95,8 @@ class _OnboardScreenState extends State<OnboardScreen> {
                             ),
                             GestureDetector(
                               onTap: () {
+                                // Navigator.pushNamed(
+                                //     context, Routesname.onboardsecondscreen);
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(

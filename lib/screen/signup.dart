@@ -12,6 +12,7 @@ class SignUp extends StatefulWidget {
 
 class _SignUpState extends State<SignUp> {
   GlobalKey<FormState> formkey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,65 +20,70 @@ class _SignUpState extends State<SignUp> {
       body: ListView(
         padding: EdgeInsets.zero,
         children: [
-          Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Image.asset("assets/images3/park4.png"),
-              const Padding(
-                padding: EdgeInsets.only(left: 24, top: 22),
-                child: Align(
-                  alignment: Alignment.topLeft,
-                  child: Text(
-                    "Create Your Profile",
-                    style: TextStyle(
-                        color: Color(0xFF333333),
-                        fontFamily: "sf-pro-display-cufonfonts",
-                        fontWeight: FontWeight.w500,
-                        fontSize: 23),
-                  ),
-                ),
-              ),
-              Align(
-                heightFactor: 1.12,
-                child: Padding(
-                  padding: const EdgeInsets.only(right: 21, left: 21, top: 12),
-                  child: TextField(
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: const BorderSide(
-                            width: 0.8, color: Color(0x8EB3B3B3)),
-                      ),
-                      contentPadding: const EdgeInsets.all(02),
-                      isDense: true,
-                      hintText: "User Name",
-                      hintStyle: const TextStyle(
-                          color: Color(0xFFB3B3B3),
-                          fontSize: 16,
-                          fontWeight: FontWeight.w400,
-                          fontFamily: "sf-pro-display-cufonfonts"),
-                      prefixIcon: const Icon(
-                        Icons.person_outline_sharp,
-                        color: Color(0xFFB3B3B3),
-                        size: 25,
-                      ),
+          Form(
+            key: formkey,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Image.asset("assets/images3/park4.png"),
+                const Padding(
+                  padding: EdgeInsets.only(left: 24, top: 22),
+                  child: Align(
+                    alignment: Alignment.topLeft,
+                    child: Text(
+                      "Create Your Profile",
+                      style: TextStyle(
+                          color: Color(0xFF333333),
+                          fontFamily: "sf-pro-display-cufonfonts",
+                          fontWeight: FontWeight.w500,
+                          fontSize: 23),
                     ),
-                    onTap: () {},
                   ),
                 ),
-              ),
-              Align(
-                heightFactor: 1.12,
-                child: Form(
-                  key: formkey,
+                Align(
+                  heightFactor: 1.12,
+                  child: Padding(
+                    padding:
+                        const EdgeInsets.only(right: 21, left: 21, top: 12),
+                    child: TextField(
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide: const BorderSide(
+                              width: 0.8, color: Color(0x8EB3B3B3)),
+                        ),
+                        contentPadding: const EdgeInsets.all(02),
+                        isDense: true,
+                        hintText: "User Name",
+                        hintStyle: const TextStyle(
+                            color: Color(0xFFB3B3B3),
+                            fontSize: 16,
+                            fontWeight: FontWeight.w400,
+                            fontFamily: "sf-pro-display-cufonfonts"),
+                        prefixIcon: const Icon(
+                          Icons.person_outline_sharp,
+                          color: Color(0xFFB3B3B3),
+                          size: 25,
+                        ),
+                      ),
+                      onTap: () {},
+                    ),
+                  ),
+                ),
+                Align(
+                  heightFactor: 1.12,
                   child: Padding(
                     padding: const EdgeInsets.only(right: 21, left: 21),
                     child: TextFormField(
                       validator: (value) {
-                        if (value!.isNotEmpty) {
-                          return "Please Enter email.";
+                        if (value!.isEmpty ||
+                            !RegExp(r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$')
+                                .hasMatch(value)) {
+                          //allow upper and lower case alphabets and space
+                          return "Enter Correct Name";
+                        } else {
+                          return null;
                         }
-                        return "hello";
                       },
                       decoration: InputDecoration(
                         border: OutlineInputBorder(
@@ -103,167 +109,167 @@ class _SignUpState extends State<SignUp> {
                     ),
                   ),
                 ),
-              ),
-              Align(
-                heightFactor: 1.12,
-                child: Padding(
-                  padding: const EdgeInsets.only(right: 21, left: 21),
-                  child: TextField(
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: const BorderSide(
-                            width: 0.8, color: Color(0x8EB3B3B3)),
-                      ),
-                      contentPadding: const EdgeInsets.all(02),
-                      isDense: true,
-                      hintText: "Mobile",
-                      hintStyle: const TextStyle(
+                Align(
+                  heightFactor: 1.12,
+                  child: Padding(
+                    padding: const EdgeInsets.only(right: 21, left: 21),
+                    child: TextField(
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide: const BorderSide(
+                              width: 0.8, color: Color(0x8EB3B3B3)),
+                        ),
+                        contentPadding: const EdgeInsets.all(02),
+                        isDense: true,
+                        hintText: "Mobile",
+                        hintStyle: const TextStyle(
+                            color: Color(0xFFB3B3B3),
+                            fontSize: 16,
+                            fontWeight: FontWeight.w400,
+                            fontFamily: "sf-pro-display-cufonfonts"),
+                        prefixIcon: const Icon(
+                          Icons.phone_android_rounded,
                           color: Color(0xFFB3B3B3),
-                          fontSize: 16,
-                          fontWeight: FontWeight.w400,
-                          fontFamily: "sf-pro-display-cufonfonts"),
-                      prefixIcon: const Icon(
-                        Icons.phone_android_rounded,
-                        color: Color(0xFFB3B3B3),
-                        size: 25,
+                          size: 25,
+                        ),
                       ),
+                      onTap: () {},
                     ),
-                    onTap: () {},
                   ),
                 ),
-              ),
-              Align(
-                heightFactor: 1.2,
-                child: Padding(
-                  padding: const EdgeInsets.only(right: 21, left: 21),
-                  child: TextField(
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: const BorderSide(
-                            width: 0.8, color: Color(0x8EB3B3B3)),
-                      ),
-                      contentPadding: const EdgeInsets.all(02),
-                      isDense: true,
-                      hintText: "Password",
-                      hintStyle: const TextStyle(
+                Align(
+                  heightFactor: 1.2,
+                  child: Padding(
+                    padding: const EdgeInsets.only(right: 21, left: 21),
+                    child: TextField(
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide: const BorderSide(
+                              width: 0.8, color: Color(0x8EB3B3B3)),
+                        ),
+                        contentPadding: const EdgeInsets.all(02),
+                        isDense: true,
+                        hintText: "Password",
+                        hintStyle: const TextStyle(
+                            color: Color(0xFFB3B3B3),
+                            fontSize: 16,
+                            fontWeight: FontWeight.w400,
+                            fontFamily: "sf-pro-display-cufonfonts"),
+                        prefixIcon: const Icon(
+                          Icons.lock_outline_rounded,
                           color: Color(0xFFB3B3B3),
-                          fontSize: 16,
-                          fontWeight: FontWeight.w400,
-                          fontFamily: "sf-pro-display-cufonfonts"),
-                      prefixIcon: const Icon(
-                        Icons.lock_outline_rounded,
-                        color: Color(0xFFB3B3B3),
-                        size: 25,
+                          size: 25,
+                        ),
                       ),
-                    ),
-                    onTap: () {},
-                  ),
-                ),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const WelcomeScreen(),
-                    ),
-                  );
-                },
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 20, right: 20),
-                  child: Container(
-                    height: 48,
-                    width: double.infinity,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      color: const Color(0xFF1D951A),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: const Text(
-                      "CREATE",
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontFamily: "sf-pro-display-cufonfonts",
-                        fontWeight: FontWeight.w500,
-                        color: Color(0xFFFFFFFF),
-                      ),
+                      onTap: () {},
                     ),
                   ),
                 ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Text(
-                    "Want to add later?",
-                    style: TextStyle(
-                        color: Color(0xFF808080),
-                        fontSize: 19,
-                        fontWeight: FontWeight.w400,
-                        fontFamily: "sf-pro-display-cufonfonts"),
-                  ),
-                  TextButton(
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const FirstPage(),
-                            ));
-                      },
+                const SizedBox(
+                  height: 20,
+                ),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const WelcomeScreen(),
+                      ),
+                    );
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 20, right: 20),
+                    child: Container(
+                      height: 48,
+                      width: double.infinity,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        color: const Color(0xFF1D951A),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
                       child: const Text(
-                        "SKIP",
+                        "CREATE",
                         style: TextStyle(
-                            fontFamily: "sf-pro-display-cufonfonts",
-                            fontWeight: FontWeight.w600,
-                            fontSize: 20,
-                            color: Color(0xFF1D951A)),
-                      ))
-                ],
-              ),
-              const Align(
-                heightFactor: 3.3,
-                child: Text("or Create Account with",
-                    style: TextStyle(
-                        color: Color(0xFF808080),
-                        fontSize: 15,
-                        fontWeight: FontWeight.w400,
-                        fontFamily: "sf-pro-display-cufonfonts")),
-              ),
-              Align(
-                heightFactor: 0.7,
-                child: Row(
+                          fontSize: 14,
+                          fontFamily: "sf-pro-display-cufonfonts",
+                          fontWeight: FontWeight.w500,
+                          color: Color(0xFFFFFFFF),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Image.asset(
-                      "assets/images3/google.png",
-                      width: 44,
-                      height: 44,
+                    const Text(
+                      "Want to add later?",
+                      style: TextStyle(
+                          color: Color(0xFF808080),
+                          fontSize: 19,
+                          fontWeight: FontWeight.w400,
+                          fontFamily: "sf-pro-display-cufonfonts"),
                     ),
-                    const SizedBox(
-                      width: 23,
-                    ),
-                    Image.asset(
-                      "assets/images3/facebook.png",
-                      width: 44,
-                      height: 44,
-                    ),
-                    const SizedBox(
-                      width: 23,
-                    ),
-                    Image.asset(
-                      "assets/images3/apple.png",
-                      width: 44,
-                      height: 44,
-                    )
+                    TextButton(
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const FirstPage(),
+                              ));
+                        },
+                        child: const Text(
+                          "SKIP",
+                          style: TextStyle(
+                              fontFamily: "sf-pro-display-cufonfonts",
+                              fontWeight: FontWeight.w600,
+                              fontSize: 20,
+                              color: Color(0xFF1D951A)),
+                        ))
                   ],
                 ),
-              ),
-            ],
+                const Align(
+                  heightFactor: 3.3,
+                  child: Text("or Create Account with",
+                      style: TextStyle(
+                          color: Color(0xFF808080),
+                          fontSize: 15,
+                          fontWeight: FontWeight.w400,
+                          fontFamily: "sf-pro-display-cufonfonts")),
+                ),
+                Align(
+                  heightFactor: 0.7,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset(
+                        "assets/images3/google.png",
+                        width: 44,
+                        height: 44,
+                      ),
+                      const SizedBox(
+                        width: 23,
+                      ),
+                      Image.asset(
+                        "assets/images3/facebook.png",
+                        width: 44,
+                        height: 44,
+                      ),
+                      const SizedBox(
+                        width: 23,
+                      ),
+                      Image.asset(
+                        "assets/images3/apple.png",
+                        width: 44,
+                        height: 44,
+                      )
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         ],
       ),

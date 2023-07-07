@@ -1,3 +1,4 @@
+import 'package:easy_park/screen/ar_view.dart';
 import 'package:easy_park/screen/home%20_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -7,6 +8,19 @@ class SearchScreen extends StatefulWidget {
   @override
   State<SearchScreen> createState() => _SearchScreenState();
 }
+
+List<Map<String, dynamic>> searchList = [
+  {
+    "image": "assets/images4/Group 13.png",
+    "title": "18th Street Brewery",
+    "name": "Oakley Avenue, Hammond, Hyd",
+  },
+  {
+    "image": "assets/images4/Group 13.png",
+    "title": "18th Avenue",
+    "name": "Brooklyn, Hyd",
+  },
+];
 
 class _SearchScreenState extends State<SearchScreen> {
   @override
@@ -59,6 +73,7 @@ class _SearchScreenState extends State<SearchScreen> {
                 padding: const EdgeInsets.only(left: 20, right: 20),
                 child: TextField(
                   decoration: InputDecoration(
+                    contentPadding: EdgeInsets.zero,
                     enabledBorder: OutlineInputBorder(
                         borderSide: const BorderSide(
                             color: Color(0xFF1D951A), width: 02),
@@ -66,15 +81,64 @@ class _SearchScreenState extends State<SearchScreen> {
                     prefixIcon: Icon(Icons.search_rounded, size: 34),
                   ),
                   cursorColor: Color(0xFF1D951A),
-                  // width: double.infinity,
-                  // height: 48,
-                  // decoration: BoxDecoration(
-                  //   color: const Color(0xFFFFFFFF),
-                  //   border:
-                  //       Border.all(color: const Color(0xFF1D951A), width: 2),
-                  //   borderRadius: BorderRadius.circular(11),
-                  // ),
                 ),
+              ),
+            ),
+            ListView.separated(
+              physics: const AlwaysScrollableScrollPhysics(),
+              shrinkWrap: true,
+              scrollDirection: Axis.vertical,
+              itemCount: 2,
+              separatorBuilder: (context, index) => SizedBox(height: 20),
+              itemBuilder: (context, index) => Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(right: 20, left: 20),
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ArView(),
+                          ),
+                        );
+                      },
+                      child: Row(
+                        children: [
+                          Image.asset(
+                            searchList[index]["image"],
+                            height: 32,
+                            width: 25,
+                          ),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                searchList[index]["title"],
+                                style: const TextStyle(
+                                    color: Color(0xFF1A1A1A),
+                                    fontFamily: "sf-pro-display-cufonfonts",
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 15),
+                              ),
+                              Text(
+                                searchList[index]["name"],
+                                style: const TextStyle(
+                                    color: Color(0xFF808080),
+                                    fontFamily: "sf-pro-display-cufonfonts",
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 14),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
           ],

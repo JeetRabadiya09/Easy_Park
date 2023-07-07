@@ -1,4 +1,4 @@
-import 'package:easy_park/screen/search_screen.dart';
+import 'package:easy_park/screen/signup.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -17,7 +17,9 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const SearchScreen(),
+      // initialRoute: Routesname.initialRoute,
+      // routes: AppRoutes().approutes,
+      home: const SignUp(),
     );
   }
 }
