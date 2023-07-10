@@ -2,9 +2,9 @@
 
 import 'package:easy_park/screen/search_screen.dart';
 import 'package:easy_park/screen/signup.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'ar_view.dart';
 import 'login_success.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -41,6 +41,7 @@ List<Map<String, dynamic>> Booklist = [
 ];
 
 class _HomeScreenState extends State<HomeScreen> {
+  bool switchvalue = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -149,7 +150,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => SearchScreen(),
+                                    builder: (context) => const SearchScreen(),
                                   ),
                                 );
                               },
@@ -164,11 +165,304 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                             GestureDetector(
                               onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => const ArView(),
+                                showModalBottomSheet(
+                                  enableDrag: true,
+                                  backgroundColor: const Color(0xFFFFFFFF),
+                                  // barrierColor: Colors.black,
+                                  shape: const OutlineInputBorder(
+                                    borderRadius: BorderRadius.only(
+                                      topRight: Radius.circular(30),
+                                      topLeft: Radius.circular(30),
+                                    ),
                                   ),
+                                  context: context,
+                                  builder: (context) {
+                                    return Wrap(
+                                      children: [
+                                        Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            const SizedBox(
+                                              height: 15,
+                                            ),
+                                            const Padding(
+                                              padding:
+                                                  EdgeInsets.only(left: 28),
+                                              child: Text(
+                                                "Sort",
+                                                style: TextStyle(
+                                                    color: Color(0xFF1A1A1A),
+                                                    fontFamily:
+                                                        "sf-pro-display-cufonfonts",
+                                                    fontSize: 20,
+                                                    fontWeight:
+                                                        FontWeight.w600),
+                                              ),
+                                            ),
+                                            const SizedBox(
+                                              height: 15,
+                                            ),
+                                            Padding(
+                                              padding: const EdgeInsets.only(
+                                                  left: 28, right: 28),
+                                              child: Row(
+                                                children: [
+                                                  Image.asset(
+                                                    "assets/images4/t1.png",
+                                                    height: 24,
+                                                    width: 24,
+                                                  ),
+                                                  const SizedBox(width: 10),
+                                                  const Text(
+                                                    "Picked for you (default)",
+                                                    style: TextStyle(
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                        fontSize: 16,
+                                                        fontFamily:
+                                                            "sf-pro-display-cufonfonts",
+                                                        color:
+                                                            Color(0xFF1D951A)),
+                                                  ),
+                                                  const Spacer(),
+                                                  const Icon(
+                                                    Icons.done,
+                                                    color: Color(0xFF1D951A),
+                                                    size: 25,
+                                                  )
+                                                ],
+                                              ),
+                                            ),
+                                            const SizedBox(
+                                              height: 12,
+                                            ),
+                                            Padding(
+                                              padding: const EdgeInsets.only(
+                                                  left: 28, right: 28),
+                                              child: Row(
+                                                children: [
+                                                  Image.asset(
+                                                    "assets/images4/t2.png",
+                                                    height: 24,
+                                                    width: 24,
+                                                  ),
+                                                  const SizedBox(width: 10),
+                                                  const Text(
+                                                    "Distance",
+                                                    style: TextStyle(
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                        fontSize: 16,
+                                                        fontFamily:
+                                                            "sf-pro-display-cufonfonts",
+                                                        color:
+                                                            Color(0xFF4D4D4D)),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                            const SizedBox(
+                                              height: 12,
+                                            ),
+                                            Padding(
+                                              padding: const EdgeInsets.only(
+                                                  left: 28, right: 28),
+                                              child: Row(
+                                                children: [
+                                                  Image.asset(
+                                                    "assets/images4/t3.png",
+                                                    height: 24,
+                                                    width: 24,
+                                                  ),
+                                                  const SizedBox(width: 10),
+                                                  const Text(
+                                                    "Rating",
+                                                    style: TextStyle(
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                        fontSize: 16,
+                                                        fontFamily:
+                                                            "sf-pro-display-cufonfonts",
+                                                        color:
+                                                            Color(0xFF4D4D4D)),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                            const SizedBox(
+                                              height: 12,
+                                            ),
+                                            Padding(
+                                              padding: const EdgeInsets.only(
+                                                  left: 28, right: 28),
+                                              child: Row(
+                                                children: [
+                                                  Image.asset(
+                                                    "assets/images4/t4.png",
+                                                    height: 24,
+                                                    width: 24,
+                                                  ),
+                                                  const SizedBox(width: 10),
+                                                  const Text(
+                                                    "Parking Time",
+                                                    style: TextStyle(
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                        fontSize: 16,
+                                                        fontFamily:
+                                                            "sf-pro-display-cufonfonts",
+                                                        color:
+                                                            Color(0xFF4D4D4D)),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                            const SizedBox(
+                                              height: 20,
+                                            ),
+                                            const Padding(
+                                              padding:
+                                                  EdgeInsets.only(left: 28),
+                                              child: Text(
+                                                "From Easy Park",
+                                                style: TextStyle(
+                                                    color: Color(0xFF1A1A1A),
+                                                    fontFamily:
+                                                        "sf-pro-display-cufonfonts",
+                                                    fontSize: 20,
+                                                    fontWeight:
+                                                        FontWeight.w600),
+                                              ),
+                                            ),
+                                            const SizedBox(
+                                              height: 16,
+                                            ),
+                                            Padding(
+                                              padding: const EdgeInsets.only(
+                                                  left: 28, right: 28),
+                                              child: Row(
+                                                children: [
+                                                  Image.asset(
+                                                    "assets/images4/t5.png",
+                                                    height: 24,
+                                                    width: 24,
+                                                  ),
+                                                  const SizedBox(width: 10),
+                                                  const Text(
+                                                    "Deals ",
+                                                    style: TextStyle(
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                        fontSize: 16,
+                                                        fontFamily:
+                                                            "sf-pro-display-cufonfonts",
+                                                        color:
+                                                            Color(0xFF4D4D4D)),
+                                                  ),
+                                                  const Spacer(),
+                                                  CupertinoSwitch(
+                                                    value: switchvalue,
+                                                    onChanged: (value) {
+                                                      debugPrint(
+                                                          "value --> $value");
+                                                      setState(() {
+                                                        switchvalue = value;
+                                                      });
+                                                    },
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                            const SizedBox(
+                                              height: 08,
+                                            ),
+                                            Padding(
+                                              padding: const EdgeInsets.only(
+                                                  left: 28, right: 28),
+                                              child: Row(
+                                                children: [
+                                                  Image.asset(
+                                                    "assets/images4/t6.png",
+                                                    height: 23,
+                                                    width: 23,
+                                                  ),
+                                                  const SizedBox(width: 10),
+                                                  const Text(
+                                                    "Highest rated ",
+                                                    style: TextStyle(
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                        fontSize: 16,
+                                                        fontFamily:
+                                                            "sf-pro-display-cufonfonts",
+                                                        color:
+                                                            Color(0xFF4D4D4D)),
+                                                  ),
+                                                  const Spacer(),
+                                                  CupertinoSwitch(
+                                                    value: switchvalue,
+                                                    onChanged: (value) {
+                                                      debugPrint(
+                                                          "value --> $value");
+                                                      setState(() {
+                                                        switchvalue = value;
+                                                      });
+                                                    },
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                            const SizedBox(
+                                              height: 25,
+                                            ),
+                                            const Padding(
+                                              padding:
+                                                  EdgeInsets.only(left: 28),
+                                              child: Text(
+                                                "Max. Parking Fee",
+                                                style: TextStyle(
+                                                    color: Color(0xFF1A1A1A),
+                                                    fontFamily:
+                                                        "sf-pro-display-cufonfonts",
+                                                    fontSize: 20,
+                                                    fontWeight:
+                                                        FontWeight.w600),
+                                              ),
+                                            ),
+                                            Row(
+                                              children: [
+                                                ElevatedButton(
+                                                  onPressed: () {},
+                                                  child: Container(
+                                                    width: 81,
+                                                    decoration: BoxDecoration(
+                                                      border: Border.all(
+                                                        width: 1,
+                                                        color: const Color(
+                                                            0xFF1A1A1A),
+                                                      ),
+                                                    ),
+                                                    child: const Text(
+                                                      "Cancel",
+                                                      style: TextStyle(
+                                                          color:
+                                                              Color(0xFF1A1A1A),
+                                                          fontFamily:
+                                                              "sf-pro-display-cufonfonts",
+                                                          fontSize: 14,
+                                                          fontWeight:
+                                                              FontWeight.w500),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    );
+                                  },
                                 );
                               },
                               child: Image.asset(

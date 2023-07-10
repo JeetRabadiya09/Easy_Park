@@ -45,7 +45,13 @@ class _SignUpState extends State<SignUp> {
                   child: Padding(
                     padding:
                         const EdgeInsets.only(right: 21, left: 21, top: 12),
-                    child: TextField(
+                    child: TextFormField(
+                      validator: (value) {
+                        if (!RegExp(r"^[a-z0-9]").hasMatch(value!)) {
+                          return "Please enter  Username";
+                        }
+                        return null;
+                      },
                       decoration: InputDecoration(
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
@@ -76,14 +82,12 @@ class _SignUpState extends State<SignUp> {
                     padding: const EdgeInsets.only(right: 21, left: 21),
                     child: TextFormField(
                       validator: (value) {
-                        if (value!.isEmpty ||
-                            !RegExp(r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$')
-                                .hasMatch(value)) {
-                          //allow upper and lower case alphabets and space
-                          return "Enter Correct Name";
-                        } else {
-                          return null;
+                        if (!RegExp(
+                                r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                            .hasMatch(value!)) {
+                          return "Please enter valid email";
                         }
+                        return null;
                       },
                       decoration: InputDecoration(
                         border: OutlineInputBorder(
@@ -113,7 +117,14 @@ class _SignUpState extends State<SignUp> {
                   heightFactor: 1.12,
                   child: Padding(
                     padding: const EdgeInsets.only(right: 21, left: 21),
-                    child: TextField(
+                    child: TextFormField(
+                      validator: (value) {
+                        if (!RegExp(r"^(?:[+0]9)?[0-9]{10,12}$")
+                            .hasMatch(value!)) {
+                          return "Please enter valid number";
+                        }
+                        return null;
+                      },
                       decoration: InputDecoration(
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
@@ -142,7 +153,13 @@ class _SignUpState extends State<SignUp> {
                   heightFactor: 1.2,
                   child: Padding(
                     padding: const EdgeInsets.only(right: 21, left: 21),
-                    child: TextField(
+                    child: TextFormField(
+                      validator: (value) {
+                        if (!RegExp(r"^[a-zA-Z0-9]{6}$").hasMatch(value!)) {
+                          return "Please enter valid email";
+                        }
+                        return null;
+                      },
                       decoration: InputDecoration(
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
@@ -172,12 +189,17 @@ class _SignUpState extends State<SignUp> {
                 ),
                 GestureDetector(
                   onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const WelcomeScreen(),
-                      ),
-                    );
+                    if (formkey.currentState!.validate()) {
+                      debugPrint("is valid");
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const WelcomeScreen(),
+                        ),
+                      );
+                    } else {
+                      debugPrint("is not valid");
+                    }
                   },
                   child: Padding(
                     padding: const EdgeInsets.only(left: 20, right: 20),

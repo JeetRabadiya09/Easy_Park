@@ -1,4 +1,4 @@
-import 'package:easy_park/screen/signup.dart';
+import 'package:easy_park/screen/home%20_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       ),
       // initialRoute: Routesname.initialRoute,
       // routes: AppRoutes().approutes,
-      home: const SignUp(),
+      home: const HomeScreen(),
     );
   }
 }
