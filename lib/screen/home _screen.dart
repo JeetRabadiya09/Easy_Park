@@ -42,6 +42,7 @@ List<Map<String, dynamic>> Booklist = [
 
 class _HomeScreenState extends State<HomeScreen> {
   bool switchvalue = true;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

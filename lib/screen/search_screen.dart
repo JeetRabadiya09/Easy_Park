@@ -1,5 +1,5 @@
-import 'package:easy_park/screen/ar_view.dart';
 import 'package:easy_park/screen/home%20_screen.dart';
+import 'package:easy_park/screen/search_result.dart';
 import 'package:flutter/material.dart';
 
 class SearchScreen extends StatefulWidget {
@@ -99,7 +99,7 @@ class _SearchScreenState extends State<SearchScreen> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => ArView(),
+                            builder: (context) => SearchResult(),
                           ),
                         );
                       },
