@@ -1,5 +1,6 @@
 import 'package:easy_park/screen/parking_detail.dart';
 import 'package:easy_park/screen/search_screen.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class SearchResult extends StatefulWidget {
@@ -76,6 +77,7 @@ List<Map<String, dynamic>> Searchlist = [
 ];
 
 class _SearchResultState extends State<SearchResult> {
+  bool switchvalue = true;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -181,10 +183,9 @@ class _SearchResultState extends State<SearchResult> {
                                           const SizedBox(
                                             height: 15,
                                           ),
-                                          const Padding(
-                                            padding: EdgeInsets.only(left: 28),
+                                          const Center(
                                             child: Text(
-                                              "Sort",
+                                              "Filter",
                                               style: TextStyle(
                                                   color: Color(0xFF1A1A1A),
                                                   fontFamily:
@@ -194,21 +195,35 @@ class _SearchResultState extends State<SearchResult> {
                                             ),
                                           ),
                                           const SizedBox(
-                                            height: 15,
+                                            height: 08,
                                           ),
-                                          Padding(
-                                            padding: const EdgeInsets.only(
+                                          const Padding(
+                                            padding: EdgeInsets.symmetric(
+                                                horizontal: 20),
+                                            child: Divider(
+                                              height: 20,
+                                              thickness: 1.5,
+                                              color: Color(0xFFB3B3B3),
+                                            ),
+                                          ),
+                                          const Padding(
+                                            padding: EdgeInsets.only(
                                                 left: 28, right: 28),
                                             child: Row(
                                               children: [
-                                                Image.asset(
-                                                  "assets/images4/t1.png",
-                                                  height: 24,
-                                                  width: 24,
+                                                Text(
+                                                  "Sort by",
+                                                  style: TextStyle(
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                      fontSize: 16,
+                                                      fontFamily:
+                                                          "sf-pro-display-cufonfonts",
+                                                      color: Color(0xFF1A1A1A)),
                                                 ),
-                                                const SizedBox(width: 10),
-                                                const Text(
-                                                  "Picked for you (default)",
+                                                Spacer(),
+                                                Text(
+                                                  "See All",
                                                   style: TextStyle(
                                                       fontWeight:
                                                           FontWeight.w500,
@@ -217,127 +232,137 @@ class _SearchResultState extends State<SearchResult> {
                                                           "sf-pro-display-cufonfonts",
                                                       color: Color(0xFF1D951A)),
                                                 ),
-                                                const Spacer(),
-                                                const Icon(
-                                                  Icons.done,
-                                                  color: Color(0xFF1D951A),
-                                                  size: 25,
-                                                )
                                               ],
                                             ),
                                           ),
                                           const SizedBox(
-                                            height: 12,
+                                            height: 10,
                                           ),
                                           Padding(
-                                            padding: const EdgeInsets.only(
-                                                left: 28, right: 28),
+                                            padding: const EdgeInsets.symmetric(
+                                                horizontal: 20),
                                             child: Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.spaceEvenly,
                                               children: [
-                                                Image.asset(
-                                                  "assets/images4/t2.png",
-                                                  height: 24,
-                                                  width: 24,
+                                                Container(
+                                                  height: 29,
+                                                  width: 82,
+                                                  decoration: BoxDecoration(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              88),
+                                                      color: const Color(
+                                                          0xFF1D951A)),
+                                                  child: const Center(
+                                                    child: Text(
+                                                      "Distance",
+                                                      style: TextStyle(
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                          fontSize: 12,
+                                                          fontFamily:
+                                                              "sf-pro-display-cufonfonts",
+                                                          color: Color(
+                                                              0xFFFFFFFF)),
+                                                    ),
+                                                  ),
                                                 ),
-                                                const SizedBox(width: 10),
-                                                const Text(
-                                                  "Distance",
-                                                  style: TextStyle(
-                                                      fontWeight:
-                                                          FontWeight.w500,
-                                                      fontSize: 16,
-                                                      fontFamily:
-                                                          "sf-pro-display-cufonfonts",
-                                                      color: Color(0xFF4D4D4D)),
+                                                Container(
+                                                  height: 29,
+                                                  width: 112,
+                                                  decoration: BoxDecoration(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              88),
+                                                      border: Border.all(
+                                                          color:
+                                                              Color(0xFF808080),
+                                                          width: 1.5)),
+                                                  child: const Center(
+                                                    child: Text(
+                                                      "Slots Available",
+                                                      style: TextStyle(
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                          fontSize: 12,
+                                                          fontFamily:
+                                                              "sf-pro-display-cufonfonts",
+                                                          color: Color(
+                                                              0xFF808080)),
+                                                    ),
+                                                  ),
+                                                ),
+                                                Container(
+                                                  height: 29,
+                                                  width: 97,
+                                                  decoration: BoxDecoration(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              88),
+                                                      border: Border.all(
+                                                          color:
+                                                              Color(0xFF808080),
+                                                          width: 1.5)),
+                                                  child: const Center(
+                                                    child: Text(
+                                                      "Lower Price",
+                                                      style: TextStyle(
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                          fontSize: 12,
+                                                          fontFamily:
+                                                              "sf-pro-display-cufonfonts",
+                                                          color: Color(
+                                                              0xFF808080)),
+                                                    ),
+                                                  ),
                                                 ),
                                               ],
                                             ),
                                           ),
                                           const SizedBox(
-                                            height: 12,
-                                          ),
-                                          Padding(
-                                            padding: const EdgeInsets.only(
-                                                left: 28, right: 28),
-                                            child: Row(
-                                              children: [
-                                                Image.asset(
-                                                  "assets/images4/t3.png",
-                                                  height: 24,
-                                                  width: 24,
-                                                ),
-                                                const SizedBox(width: 10),
-                                                const Text(
-                                                  "Rating",
-                                                  style: TextStyle(
-                                                      fontWeight:
-                                                          FontWeight.w500,
-                                                      fontSize: 16,
-                                                      fontFamily:
-                                                          "sf-pro-display-cufonfonts",
-                                                      color: Color(0xFF4D4D4D)),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                          const SizedBox(
-                                            height: 12,
-                                          ),
-                                          Padding(
-                                            padding: const EdgeInsets.only(
-                                                left: 28, right: 28),
-                                            child: Row(
-                                              children: [
-                                                Image.asset(
-                                                  "assets/images4/t4.png",
-                                                  height: 24,
-                                                  width: 24,
-                                                ),
-                                                const SizedBox(width: 10),
-                                                const Text(
-                                                  "Parking Time",
-                                                  style: TextStyle(
-                                                      fontWeight:
-                                                          FontWeight.w500,
-                                                      fontSize: 16,
-                                                      fontFamily:
-                                                          "sf-pro-display-cufonfonts",
-                                                      color: Color(0xFF4D4D4D)),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                          const SizedBox(
-                                            height: 20,
+                                            height: 10,
                                           ),
                                           const Padding(
                                             padding: EdgeInsets.only(left: 28),
                                             child: Text(
-                                              "From Easy Park",
+                                              "Distance",
                                               style: TextStyle(
                                                   color: Color(0xFF1A1A1A),
                                                   fontFamily:
                                                       "sf-pro-display-cufonfonts",
-                                                  fontSize: 20,
-                                                  fontWeight: FontWeight.w600),
+                                                  fontSize: 16,
+                                                  fontWeight: FontWeight.w700),
                                             ),
                                           ),
-                                          const SizedBox(
-                                            height: 16,
-                                          ),
-                                          const SizedBox(
-                                            height: 25,
-                                          ),
-                                          const Padding(
-                                            padding: EdgeInsets.only(left: 28),
-                                            child: Text(
-                                              "Max. Parking Fee",
-                                              style: TextStyle(
-                                                  color: Color(0xFF1A1A1A),
-                                                  fontFamily:
-                                                      "sf-pro-display-cufonfonts",
-                                                  fontSize: 20,
-                                                  fontWeight: FontWeight.w600),
+                                          Padding(
+                                            padding: EdgeInsets.symmetric(
+                                                horizontal: 20),
+                                            child: Row(
+                                              children: [
+                                                const Text(
+                                                  "Valet Parking",
+                                                  style: TextStyle(
+                                                      color: Color(0xFF1A1A1A),
+                                                      fontFamily:
+                                                          "sf-pro-display-cufonfonts",
+                                                      fontSize: 16,
+                                                      fontWeight:
+                                                          FontWeight.w700),
+                                                ),
+                                                Spacer(),
+                                                CupertinoSwitch(
+                                                  value: switchvalue,
+                                                  onChanged: (value) {
+                                                    debugPrint(
+                                                        "value --> $value");
+                                                    setState(() {
+                                                      switchvalue = value;
+                                                    });
+                                                  },
+                                                ),
+                                              ],
                                             ),
                                           ),
                                           Row(
