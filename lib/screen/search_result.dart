@@ -1,7 +1,10 @@
 import 'package:easy_park/screen/parking_detail.dart';
 import 'package:easy_park/screen/search_screen.dart';
+import 'package:easy_park/screen/welcome_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import 'home _screen.dart';
 
 class SearchResult extends StatefulWidget {
   const SearchResult({Key? key}) : super(key: key);
@@ -78,6 +81,7 @@ List<Map<String, dynamic>> Searchlist = [
 
 class _SearchResultState extends State<SearchResult> {
   bool switchvalue = true;
+  double sliderValue = 0;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -165,6 +169,7 @@ class _SearchResultState extends State<SearchResult> {
                               showModalBottomSheet(
                                 enableDrag: true,
                                 backgroundColor: const Color(0xFFFFFFFF),
+                                isScrollControlled: true,
                                 // barrierColor: Colors.black,
                                 shape: const OutlineInputBorder(
                                   borderRadius: BorderRadius.only(
@@ -276,8 +281,8 @@ class _SearchResultState extends State<SearchResult> {
                                                           BorderRadius.circular(
                                                               88),
                                                       border: Border.all(
-                                                          color:
-                                                              Color(0xFF808080),
+                                                          color: const Color(
+                                                              0xFF808080),
                                                           width: 1.5)),
                                                   child: const Center(
                                                     child: Text(
@@ -301,8 +306,8 @@ class _SearchResultState extends State<SearchResult> {
                                                           BorderRadius.circular(
                                                               88),
                                                       border: Border.all(
-                                                          color:
-                                                              Color(0xFF808080),
+                                                          color: const Color(
+                                                              0xFF808080),
                                                           width: 1.5)),
                                                   child: const Center(
                                                     child: Text(
@@ -336,8 +341,24 @@ class _SearchResultState extends State<SearchResult> {
                                                   fontWeight: FontWeight.w700),
                                             ),
                                           ),
+                                          Slider(
+                                            max: 5,
+                                            min: 0,
+                                            divisions: 5,
+                                            label: "10 km",
+                                            value: sliderValue,
+                                            activeColor:
+                                                const Color(0xFF1D951A),
+                                            inactiveColor:
+                                                const Color(0xFFB3B3B3),
+                                            onChanged: (newvalue) {
+                                              setState(() {
+                                                sliderValue = newvalue;
+                                              });
+                                            },
+                                          ),
                                           Padding(
-                                            padding: EdgeInsets.symmetric(
+                                            padding: const EdgeInsets.symmetric(
                                                 horizontal: 20),
                                             child: Row(
                                               children: [
@@ -351,7 +372,7 @@ class _SearchResultState extends State<SearchResult> {
                                                       fontWeight:
                                                           FontWeight.w700),
                                                 ),
-                                                Spacer(),
+                                                const Spacer(),
                                                 CupertinoSwitch(
                                                   value: switchvalue,
                                                   onChanged: (value) {
@@ -365,33 +386,88 @@ class _SearchResultState extends State<SearchResult> {
                                               ],
                                             ),
                                           ),
+                                          const SizedBox(
+                                            height: 10,
+                                          ),
                                           Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceEvenly,
                                             children: [
-                                              ElevatedButton(
-                                                onPressed: () {},
+                                              GestureDetector(
+                                                onTap: () {
+                                                  Navigator.push(
+                                                    context,
+                                                    MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          const HomeScreen(),
+                                                    ),
+                                                  );
+                                                },
                                                 child: Container(
                                                   width: 81,
+                                                  height: 47,
+                                                  alignment: Alignment.center,
                                                   decoration: BoxDecoration(
-                                                    border: Border.all(
-                                                      width: 1,
                                                       color: const Color(
-                                                          0xFF1A1A1A),
+                                                          0xFFFFFFFF),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              10),
+                                                      border: Border.all(
+                                                          width: 1,
+                                                          color: const Color(
+                                                              0xFF1A1A1A))),
+                                                  child: const Text(
+                                                    "Reset",
+                                                    style: TextStyle(
+                                                      fontSize: 14,
+                                                      fontFamily:
+                                                          "sf-pro-display-cufonfonts",
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                      color: Color(0xFF1A1A1A),
                                                     ),
                                                   ),
+                                                ),
+                                              ),
+                                              GestureDetector(
+                                                onTap: () {
+                                                  Navigator.push(
+                                                    context,
+                                                    MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          const WelcomeScreen(),
+                                                    ),
+                                                  );
+                                                },
+                                                child: Container(
+                                                  width: 220,
+                                                  height: 47,
+                                                  alignment: Alignment.center,
+                                                  decoration: BoxDecoration(
+                                                    color:
+                                                        const Color(0xFF1D951A),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            10),
+                                                  ),
                                                   child: const Text(
-                                                    "Cancel",
+                                                    "Apply",
                                                     style: TextStyle(
-                                                        color:
-                                                            Color(0xFF1A1A1A),
-                                                        fontFamily:
-                                                            "sf-pro-display-cufonfonts",
-                                                        fontSize: 14,
-                                                        fontWeight:
-                                                            FontWeight.w500),
+                                                      fontSize: 14,
+                                                      fontFamily:
+                                                          "sf-pro-display-cufonfonts",
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                      color: Color(0xFFFFFFFF),
+                                                    ),
                                                   ),
                                                 ),
                                               ),
                                             ],
+                                          ),
+                                          const SizedBox(
+                                            height: 15,
                                           ),
                                         ],
                                       ),
@@ -428,7 +504,7 @@ class _SearchResultState extends State<SearchResult> {
                     // height: 500,
                     child: GridView.builder(
                       shrinkWrap: true,
-                      physics: NeverScrollableScrollPhysics(),
+                      physics: const NeverScrollableScrollPhysics(),
                       scrollDirection: Axis.vertical,
                       itemCount: 9,
                       gridDelegate:
