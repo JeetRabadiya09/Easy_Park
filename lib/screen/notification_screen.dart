@@ -191,78 +191,75 @@ class _NotificationScreenState extends State<NotificationScreen> {
                   fontWeight: FontWeight.w700),
             ),
           ),
-          Align(
-            heightFactor: 0.5,
-            child: SizedBox(
-              // height: 500,
-              child: GridView.builder(
-                shrinkWrap: true,
-                // physics: const NeverScrollableScrollPhysics(),
-                // scrollDirection: Axis.vertical,
-                itemCount: 5,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 1,
-                  mainAxisExtent: 70,
-                  mainAxisSpacing: 0,
-                ),
-                itemBuilder: (context, index) => Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Column(
+          SizedBox(
+            // height: 500,
+            child: GridView.builder(
+              shrinkWrap: true,
+              // physics: const NeverScrollableScrollPhysics(),
+              // scrollDirection: Axis.vertical,
+              itemCount: 5,
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 1,
+                mainAxisExtent: 70,
+                mainAxisSpacing: 0,
+              ),
+              itemBuilder: (context, index) => Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Column(
+                      children: [
+                        Container(
+                          height: 48,
+                          width: 48,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(12),
+                              color: const Color(0xFFE5E5E5)),
+                          padding: const EdgeInsets.all(11),
+                          child: Image.asset(
+                            Notificationtwolist[index]["image"],
+                          ),
+                        ),
+                      ],
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 04, left: 15),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Container(
-                            height: 48,
-                            width: 48,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(12),
-                                color: const Color(0xFFE5E5E5)),
-                            padding: const EdgeInsets.all(11),
-                            child: Image.asset(
-                              Notificationtwolist[index]["image"],
-                            ),
+                          Row(
+                            children: [
+                              Text(
+                                Notificationtwolist[index]["title"],
+                                style: const TextStyle(
+                                    color: Color(0xFF1A1A1A),
+                                    fontFamily: "sf-pro-display-cufonfonts",
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 16),
+                              ),
+                              Text(
+                                Notificationtwolist[index]["data"],
+                                style: const TextStyle(
+                                    color: Color(0xFF1A1A1A),
+                                    fontFamily: "sf-pro-display-cufonfonts",
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 11),
+                              ),
+                            ],
+                          ),
+                          Text(
+                            Notificationtwolist[index]["name"],
+                            style: const TextStyle(
+                                color: Color(0xFF1A1A1A),
+                                fontFamily: "sf-pro-display-cufonfonts",
+                                fontWeight: FontWeight.w400,
+                                fontSize: 11),
                           ),
                         ],
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 04, left: 15),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(
-                              children: [
-                                Text(
-                                  Notificationtwolist[index]["title"],
-                                  style: const TextStyle(
-                                      color: Color(0xFF1A1A1A),
-                                      fontFamily: "sf-pro-display-cufonfonts",
-                                      fontWeight: FontWeight.w600,
-                                      fontSize: 16),
-                                ),
-                                Text(
-                                  Notificationtwolist[index]["data"],
-                                  style: const TextStyle(
-                                      color: Color(0xFF1A1A1A),
-                                      fontFamily: "sf-pro-display-cufonfonts",
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: 11),
-                                ),
-                              ],
-                            ),
-                            Text(
-                              Notificationtwolist[index]["name"],
-                              style: const TextStyle(
-                                  color: Color(0xFF1A1A1A),
-                                  fontFamily: "sf-pro-display-cufonfonts",
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: 11),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
             ),
