@@ -1,6 +1,6 @@
 import 'package:easy_park/screen/home%20_screen.dart';
 import 'package:easy_park/screen/login_screen.dart';
-import 'package:easy_park/screen/login_success.dart';
+import 'package:easy_park/screen/saved_parking.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
@@ -21,7 +21,7 @@ class _HomeMainScreenState extends State<HomeMainScreen> {
   List<Widget> ScreenList = [
     const HomeScreen(),
     const ActiveBooking(),
-    const Login_Success(),
+    const SavedParking(),
     const LoginScreen(),
   ];
   @override
