@@ -5,7 +5,7 @@ import 'package:easy_park/screen/signup.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'login_success.dart';
+import 'ar_view.dart';
 import 'notification_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -485,7 +485,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const Login_Success(),
+                          builder: (context) => const ArView(),
                         ),
                       );
                     },

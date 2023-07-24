@@ -1,5 +1,5 @@
 import 'package:easy_park/screen/home%20_screen.dart';
-import 'package:easy_park/screen/login_screen.dart';
+import 'package:easy_park/screen/profile_screen.dart';
 import 'package:easy_park/screen/saved_parking.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +22,7 @@ class _HomeMainScreenState extends State<HomeMainScreen> {
     const HomeScreen(),
     const ActiveBooking(),
     const SavedParking(),
-    const LoginScreen(),
+    const ProfileScreen(),
   ];
   @override
   Widget build(BuildContext context) {
