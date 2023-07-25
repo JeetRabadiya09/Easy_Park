@@ -1,4 +1,4 @@
-import 'package:easy_park/screen/home_main_screen.dart';
+import 'package:easy_park/screen/parking_detail.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       ),
       // initialRoute: Routesname.initialRoute,
       // routes: AppRoutes().approutes,
-      home: const HomeMainScreen(),
+      home: const ParkingDetailScreen(),
     );
   }
 }
