@@ -41,6 +41,30 @@ class _PaymentSuccessState extends State<PaymentSuccess> {
                           fontFamily: "sf-pro-display-cufonfonts")),
                 ],
               ),
+              SizedBox(
+                height: 25,
+              ),
+              Stack(
+                children: [
+                  Container(
+                    height: 450,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        border:
+                            Border.all(width: 1.2, color: Color(0xFFB3B3B3))),
+                  ),
+                  Align(
+                    // alignment: Alignment.topCenter,
+                    heightFactor: 0.1,
+                    child: Image.asset(
+                      "assets/images6/payment.png",
+                      height: 82,
+                      width: 92,
+                    ),
+                  )
+                ],
+              ),
             ],
           ),
         ),
