@@ -256,7 +256,7 @@ class _ParkingDetailScreenState extends State<ParkingDetailScreen> {
                   ),
                   GestureDetector(
                     onTap: () {
-                      Navigator.pop(
+                      Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (context) => const SlotSelection(),
@@ -285,7 +285,7 @@ class _ParkingDetailScreenState extends State<ParkingDetailScreen> {
                 ],
               ),
             ),
-          )
+          ),
         ],
       ),
     );

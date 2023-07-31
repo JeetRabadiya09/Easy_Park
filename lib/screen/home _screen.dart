@@ -1,7 +1,7 @@
 // ignore_for_file: must_be_immutable
 
+import 'package:easy_park/screen/parking_detail.dart';
 import 'package:easy_park/screen/search_screen.dart';
-import 'package:easy_park/screen/signup.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -633,7 +633,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                       Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                          builder: (context) => const SignUp(),
+                                          builder: (context) =>
+                                              const ParkingDetailScreen(),
                                         ),
                                       );
                                     },
