@@ -1,3 +1,4 @@
+import 'package:easy_park/screen/parking_detail.dart';
 import 'package:flutter/material.dart';
 
 class SavedParking extends StatefulWidget {
@@ -52,7 +53,14 @@ class _SavedParkingState extends State<SavedParking> {
               height: 20,
             ),
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ParkingDetailScreen(),
+                  ),
+                );
+              },
               child: SizedBox(
                 // height: 500,
                 child: GridView.builder(

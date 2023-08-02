@@ -1,10 +1,7 @@
+import 'package:easy_park/screen/home_main_screen.dart';
 import 'package:easy_park/screen/parking_detail.dart';
-import 'package:easy_park/screen/search_screen.dart';
-import 'package:easy_park/screen/welcome_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import 'home _screen.dart';
 
 class SearchResult extends StatefulWidget {
   const SearchResult({Key? key}) : super(key: key);
@@ -100,12 +97,12 @@ class _SearchResultState extends State<SearchResult> {
                     BackButton(
                       color: const Color(0xFF000000),
                       onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const SearchScreen(),
-                          ),
-                        );
+                        // Navigator.push(
+                        //   context,
+                        //   MaterialPageRoute(
+                        //     builder: (context) => const SearchScreen(),
+                        //   ),
+                        // );
                       },
                     ),
                     const SizedBox(
@@ -399,7 +396,7 @@ class _SearchResultState extends State<SearchResult> {
                                                     context,
                                                     MaterialPageRoute(
                                                       builder: (context) =>
-                                                          const HomeScreen(),
+                                                          const HomeMainScreen(),
                                                     ),
                                                   );
                                                 },
@@ -436,7 +433,7 @@ class _SearchResultState extends State<SearchResult> {
                                                     context,
                                                     MaterialPageRoute(
                                                       builder: (context) =>
-                                                          const WelcomeScreen(),
+                                                          const SearchResult(),
                                                     ),
                                                   );
                                                 },

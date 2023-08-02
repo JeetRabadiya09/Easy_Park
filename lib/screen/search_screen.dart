@@ -1,4 +1,4 @@
-import 'package:easy_park/screen/home%20_screen.dart';
+import 'package:easy_park/screen/home_main_screen.dart';
 import 'package:easy_park/screen/search_result.dart';
 import 'package:flutter/material.dart';
 
@@ -39,7 +39,7 @@ class _SearchScreenState extends State<SearchScreen> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const HomeScreen(),
+                      builder: (context) => const HomeMainScreen(),
                     ),
                   );
                 },

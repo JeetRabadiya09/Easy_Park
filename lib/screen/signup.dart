@@ -1,7 +1,6 @@
-import 'package:easy_park/screen/welcome_screen.dart';
+import 'package:easy_park/screen/home_main_screen.dart';
+import 'package:easy_park/screen/login_success.dart';
 import 'package:flutter/material.dart';
-
-import 'first_page.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({Key? key}) : super(key: key);
@@ -194,7 +193,7 @@ class _SignUpState extends State<SignUp> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const WelcomeScreen(),
+                          builder: (context) => const Login_Success(),
                         ),
                       );
                     } else {
@@ -239,7 +238,7 @@ class _SignUpState extends State<SignUp> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => const FirstPage(),
+                                builder: (context) => const HomeMainScreen(),
                               ));
                         },
                         child: const Text(

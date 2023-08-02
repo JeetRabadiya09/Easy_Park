@@ -1,4 +1,4 @@
-import 'package:easy_park/screen/welcome_screen.dart';
+import 'package:easy_park/screen/home_main_screen.dart';
 import 'package:flutter/material.dart';
 
 class Login_Success extends StatefulWidget {
@@ -69,7 +69,7 @@ class _Login_SuccessState extends State<Login_Success> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const WelcomeScreen(),
+                          builder: (context) => const HomeMainScreen(),
                         ),
                       );
                     },
