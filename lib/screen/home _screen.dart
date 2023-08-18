@@ -1,9 +1,12 @@
 // ignore_for_file: must_be_immutable
 
+import 'dart:async';
+
 import 'package:easy_park/screen/parking_detail.dart';
 import 'package:easy_park/screen/search_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import 'ar_view.dart';
 import 'notification_screen.dart';
@@ -43,18 +46,41 @@ List<Map<String, dynamic>> Booklist = [
 
 class _HomeScreenState extends State<HomeScreen> {
   bool switchvalue = true;
+  final Completer<GoogleMapController> googlecontroller =
+      Completer<GoogleMapController>();
+
+  static const CameraPosition kGooglePlex = CameraPosition(
+    target: LatLng(37.42796133580664, -122.085749655962),
+    zoom: 14.4746,
+  );
+
+  static const CameraPosition kLake = CameraPosition(
+      bearing: 192.8334901395799,
+      target: LatLng(21.2147, 72.8887),
+      tilt: 59.440717697143555,
+      zoom: 19.151926040649414);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView(
-        physics: const AlwaysScrollableScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         children: [
           Column(
             children: [
               Stack(
                 children: [
-                  Image.asset("assets/images4/Map.png"),
+                  Container(
+                    height: 600,
+                    width: double.infinity,
+                    child: GoogleMap(
+                      mapType: MapType.normal,
+                      initialCameraPosition: kGooglePlex,
+                      onMapCreated: (GoogleMapController controller) {
+                        googlecontroller.complete(controller);
+                      },
+                    ),
+                  ),
                   Padding(
                     padding: const EdgeInsets.only(left: 15, right: 15),
                     child: Row(
