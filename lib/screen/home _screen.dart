@@ -50,8 +50,8 @@ class _HomeScreenState extends State<HomeScreen> {
       Completer<GoogleMapController>();
 
   static const CameraPosition kGooglePlex = CameraPosition(
-    target: LatLng(37.42796133580664, -122.085749655962),
-    zoom: 14.4746,
+    target: LatLng(21.214689, 72.888713),
+    zoom: 17.4746,
   );
 
   static const CameraPosition kLake = CameraPosition(
@@ -71,10 +71,17 @@ class _HomeScreenState extends State<HomeScreen> {
               Stack(
                 children: [
                   Container(
-                    height: 600,
+                    height: 750,
                     width: double.infinity,
                     child: GoogleMap(
-                      mapType: MapType.normal,
+                      markers: <Marker>{
+                        Marker(
+                          markerId: MarkerId('id'),
+                          position: LatLng(21.2147, 72.8887),
+                          onTap: () {},
+                        ),
+                      },
+                      mapType: MapType.hybrid,
                       initialCameraPosition: kGooglePlex,
                       onMapCreated: (GoogleMapController controller) {
                         googlecontroller.complete(controller);
@@ -525,15 +532,6 @@ class _HomeScreenState extends State<HomeScreen> {
                           height: 52,
                         ),
                       ),
-                    ),
-                  ),
-                  Align(
-                    alignment: Alignment.center,
-                    heightFactor: 1.82,
-                    child: Image.asset(
-                      "assets/images4/Group 1000007741.png",
-                      width: 327,
-                      height: 343,
                     ),
                   ),
                   Align(
