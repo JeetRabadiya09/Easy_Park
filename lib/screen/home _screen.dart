@@ -1,7 +1,5 @@
 // ignore_for_file: must_be_immutable
 
-import 'dart:async';
-
 import 'package:easy_park/screen/parking_detail.dart';
 import 'package:easy_park/screen/search_screen.dart';
 import 'package:flutter/cupertino.dart';
@@ -46,19 +44,40 @@ List<Map<String, dynamic>> Booklist = [
 
 class _HomeScreenState extends State<HomeScreen> {
   bool switchvalue = true;
-  final Completer<GoogleMapController> googlecontroller =
-      Completer<GoogleMapController>();
+  LatLng initialLocation = const LatLng(21.214689, 72.888713);
+  BitmapDescriptor markerIcon = BitmapDescriptor.defaultMarker;
 
-  static const CameraPosition kGooglePlex = CameraPosition(
-    target: LatLng(21.214689, 72.888713),
-    zoom: 17.4746,
-  );
+  @override
+  void initState() {
+    addCustomIcon();
+    super.initState();
+  }
 
-  static const CameraPosition kLake = CameraPosition(
-      bearing: 192.8334901395799,
-      target: LatLng(21.2147, 72.8887),
-      tilt: 59.440717697143555,
-      zoom: 19.151926040649414);
+  void addCustomIcon() {
+    BitmapDescriptor.fromAssetImage(
+            const ImageConfiguration(), "assets/Location_marker.png")
+        .then(
+      (icon) {
+        setState(() {
+          markerIcon = icon;
+        });
+      },
+    );
+  }
+
+  // final Completer<GoogleMapController> googlecontroller =
+  //     Completer<GoogleMapController>();
+  //
+  // static const CameraPosition kGooglePlex = CameraPosition(
+  //   target: LatLng(21.214689, 72.888713),
+  //   zoom: 17.4746,
+  // );
+  //
+  // static const CameraPosition kLake = CameraPosition(
+  //     bearing: 192.8334901395799,
+  //     target: LatLng(21.2147, 72.8887),
+  //     tilt: 59.440717697143555,
+  //     zoom: 19.151926040649414);
 
   @override
   Widget build(BuildContext context) {
@@ -74,19 +93,41 @@ class _HomeScreenState extends State<HomeScreen> {
                     height: 750,
                     width: double.infinity,
                     child: GoogleMap(
-                      markers: <Marker>{
-                        Marker(
-                          markerId: MarkerId('id'),
-                          position: LatLng(21.2147, 72.8887),
-                          onTap: () {},
-                        ),
-                      },
                       mapType: MapType.hybrid,
-                      initialCameraPosition: kGooglePlex,
-                      onMapCreated: (GoogleMapController controller) {
-                        googlecontroller.complete(controller);
+                      initialCameraPosition: CameraPosition(
+                        target: initialLocation,
+                        zoom: 14,
+                      ),
+                      markers: {
+                        Marker(
+                          markerId: const MarkerId("marker1"),
+                          position: const LatLng(21.214689, 72.888713),
+                          draggable: true,
+                          onDragEnd: (value) {
+                            // value is the new position
+                          },
+                          icon: markerIcon,
+                        ),
+                        // Marker(
+                        //   markerId: const MarkerId("marker2"),
+                        //   position: const LatLng(21.214689, 72.888713),
+                        // ),
                       },
                     ),
+                    // GoogleMap(
+                    //   markers: <Marker>{
+                    //     Marker(
+                    //       markerId: MarkerId('id'),
+                    //       position: LatLng(21.2147, 72.8887),
+                    //       onTap: () {},
+                    //     ),
+                    //   },
+                    //   mapType: MapType.hybrid,
+                    //   initialCameraPosition: kGooglePlex,
+                    //   onMapCreated: (GoogleMapController controller) {
+                    //     googlecontroller.complete(controller);
+                    //   },
+                    // ),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(left: 15, right: 15),
