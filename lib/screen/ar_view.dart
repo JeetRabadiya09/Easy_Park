@@ -1,6 +1,5 @@
+import 'package:easy_park/screen/home_main_screen.dart';
 import 'package:flutter/material.dart';
-
-import 'home _screen.dart';
 
 class ArView extends StatefulWidget {
   const ArView({Key? key}) : super(key: key);
@@ -28,7 +27,7 @@ class _ArViewState extends State<ArView> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const HomeScreen(),
+                          builder: (context) => const HomeMainScreen(),
                         ),
                       );
                     },
